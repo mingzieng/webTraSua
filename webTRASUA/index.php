@@ -294,7 +294,11 @@
         margin: 15% auto; /* 15% from the top and centered */
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
+        width: 80%;
+        position: fixed;
+        left:150px;
+        top:-140px;
+          /* Could be more or less, depending on screen size */
     }
 
     /* The Close Button */
@@ -311,6 +315,50 @@
         text-decoration: none;
         cursor: pointer;
     }
+    .modal-content .click-buy {
+        margin-left: 200px;
+        display: flex;
+        width: 30%;
+        position: absolute;
+        right:180px;
+        bottom:0;
+    }
+    .modal-content .click-buy p {
+        margin: 20px;
+        border: 4px green;
+        font-size: 18px;
+        font-variant: small-caps;
+        font-weight: bold;
+        color:skyblue;
+        text-decoration: underline;
+    }
+    .modal-content .click-buy .click {
+        width: 12%;
+        height:30%;
+        padding: 6px 0;
+        margin: 0 40px;
+        font-size: 20px;
+        text-align: center;
+        background-color: white;
+        color:#45a049;
+        border-color: skyblue;
+        box-shadow: 0 0 4px skyblue;
+        border:none;
+    }
+    .modal-content .click-buy .click:hover {
+        box-shadow: 0 0 5px lightgreen;
+    }
+    .modal-content .choose-info {
+        position: absolute;
+        top: 0;
+        right: 200px;
+    }
+
+    .choose-info .choose-size,
+    .choose-info .choose-topping {
+        margin-bottom: 10px;
+    }
+
 </style>
 
 <body>
@@ -350,7 +398,6 @@
 
     <div class="menu">
         <ul>
-
             <li><a href="#featured">
                     <div style="display: flex;">
                         <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px"
@@ -379,7 +426,6 @@
         <section id="featured">
             <h2>Món Nổi Bật</h2>
             <div class="items">
-                <!-- Repeat this block for each item -->
                 <div class="item">
                     <img src="featured1.jpg" alt="Featured Item 1">
                     <p>Item 1</p>
@@ -393,10 +439,9 @@
             </div>
             <button class="show-more" onclick="toggleItems('featured')">Xem Tất Cả</button>
         </section>
-        <section id="milk-tea">
+            <section id="milk-tea">
             <h2>Trà Sữa</h2>
             <div class="items">
-                <!-- Repeat this block for each item -->
                 <?php 
                     $servername = "localhost";
                     $username = "root";
@@ -412,58 +457,89 @@
                         $count = 0;
                         while($row = $result->fetch_assoc()) {
                             if ($count >= 4) {
-                                echo '<div class = "item hidden">';
-                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg">';
+                                echo '<div class="item hidden">';
+                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg" class="openModalImg" data-name="'.$row["milkteaName"].'" data-price="'.$row["priceMt"].'">';
                                 echo '<p>'.$row["milkteaName"]. '</p>';
                                 echo '<p>Price: '.$row["priceMt"].'d</p>';
                                 echo '</div>';
-                            }
-                            else {
-                                echo '<div class = "item">';
-                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg" id = "openModalImg">';
+                            } else {
+                                echo '<div class="item">';
+                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg" class="openModalImg" data-name="'.$row["milkteaName"].'" data-price="'.$row["priceMt"].'">';
                                 echo '<p>'.$row["milkteaName"]. '</p>';
                                 echo '<p>Price: '.$row["priceMt"].'d</p>';
                                 echo '</div>';
                             }
                             $count++;
-                          
                         }
-                    }
-                    else {
+                    } else {
                         echo "0 results";
                     }
-                    $connect->close();
                 ?>
-               
-                <!-- Add more items here -->
             </div>
-            <button class="show-more" onclick="toggleItems('milk-tea')">Xem Tất Cả</button>
-        </section>
-        <section id="fruit-tea">
-            <h2>Trà Trái Cây</h2>
-            <div class="items">
-                <!-- Repeat this block for each item -->
-                <div class="item">
-                    <img src="fruittea1.jpg" alt="Fruit Tea 1">
-                    <p>Fruit Tea 1</p>
-                    <p>Price: $4.00</p>
-                </div>
-                <div class="item hidden">
-                    <img src="fruittea4.jpg" alt="Fruit Tea 4">
-                    <p>Fruit Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <!-- Add more items here -->
+        <button class="show-more" onclick="toggleItems('milk-tea')">Xem Tất Cả</button>
+    </section>
+    <section id="fruit-tea">
+        <h2>Trà Trái Cây</h2>
+        <div class="items">
+            <?php 
+                $sql = "Select * from fruitTea";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    $count = 0;
+                    while($row = $result->fetch_assoc()) {
+                        if ($count >= 4) {
+                            echo '<div class="item hidden">';
+                            echo '<img src="./pic/TràTráiCây/' . $row["fruitTeaName"] . '.jpg" class="openModalImg" data-name="'.$row["fruitTeaName"].'" data-price="'.$row["priceFt"].'">';
+                            echo '<p>'.$row["fruitTeaName"]. '</p>';
+                            echo '<p>Price: '.$row["priceFt"].'d</p>';
+                            echo '</div>';
+                        } else {
+                            echo '<div class="item">';
+                            echo '<img src="./pic/TràTráiCây/' . $row["fruitTeaName"] . '.jpg" class="openModalImg" data-name="'.$row["fruitTeaName"].'" data-price="'.$row["priceFt"].'">';
+                            echo '<p>'.$row["fruitTeaName"]. '</p>';
+                            echo '<p>Price: '.$row["priceFt"].'d</p>';
+                            echo '</div>';
+                        }
+                        $count++;
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $connect->close();
+            ?>
+        </div>
+        <button class="show-more" onclick="toggleItems('fruit-tea')">Xem Tất Cả</button>
+    </section>
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="text-align:center;color:white;text-shadow:0 0 5px #45a049 ;width:30%;" id="modalHeader"></h2>
+        <img style="width:30%;height:30%;border:3px solid gray;border-radius:5%;" id="modalImg" src="" alt="">
+        <p style="text-align:center;width:30%;font-weight:bold;" id="modalPrice"></p>
+        <div class="click-buy">
+            <button class="click">-</button>
+            <p>0</p>
+            <button class="click">+</button>
+        </div>
+        <div class = "choose-info">
+            <div class = "choose-size">
+                <p>Chọn size: </p>
+                <input type="radio" name="size">M
+                <input type="radio" name="size">L
+                <input type="radio" name="size">XL
             </div>
-            <button class="show-more" onclick="toggleItems('fruit-tea')">Xem Tất Cả</button>
-        </section>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Modal Header</h2>
-                    <p>This is a simple modal.</p>
-                </div>
+            <div class = "choose-topping">
+                <p>Chọn topping: </p>
+                <input type="checkbox" name = "topping">Trân châu đen
+                <input type="checkbox" name = "topping">Trân châu trắng
+                <input type="checkbox" name = "topping">Thạch dừa
+                <input type="checkbox" name = "topping">Phô mai
+                <input type="checkbox" name = "topping">Thạch cá heo
             </div>
+        </div>
+    </div>
+</div>
+
         <div class="footer">
             <footer id="footer">
                 <p>© Trà sữa DAISY'S TEA. Địa chỉ: 340/18 Đ.Tân Chánh Hiệp 10, P.Tân Chánh Hiệp, Q.12, TP.Hồ Chí Minh

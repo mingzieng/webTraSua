@@ -34,7 +34,7 @@
                         $count = 0;
                         while($row = $result->fetch_assoc()) {
                             $hidden_class = ($count >= 4) ? ' hidden' : ''; // Ẩn các mục sau mục thứ 3
-                            echo '<div class="item' . $hidden_class . '">';
+                            echo '<div class="item'. $hidden_class .'">';
                             echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg" alt="' . $row["milkteaName"] . '">';
                             echo '<p>'.$row["milkteaName"]. '</p>';
                             echo '<p>Price: '.$row["priceMt"].'d</p>';
