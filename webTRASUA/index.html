@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daisy's Tea</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+
+    .navbar {
+        z-index: 2;
+        opacity: 0.8;
+        position: relative;
+    }
+
+    .navbar-menu {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        padding-left: 570px;
+        font-size: 19px;
+        font-weight: bold;
+        padding-top: 120px;
+    }
+
+    .navbar .navbar-menu img {
+        z-index: 4;
+        box-shadow: 0 0 5px;
+        width: 130px;
+        height: 130px;
+        padding: 0;
+        justify-content: left;
+        position: absolute;
+        top: 30px;
+        left: 55px;
+        border-radius: 60%;
+    }
+
+
+    .navbar-menu li {
+        float: left;
+    }
+
+    .navbar-menu li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+    .navbar-menu li a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .blurred-header {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        /* Adjust the height as needed */
+        background: url('./pic/header.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .header-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        /* Apply the blur effect */
+        background: rgba(255, 255, 255, 0.1);
+        /* 25% opacity */
+    }
+
+    .header-content h1 {
+        position: relative;
+        color: white;
+        z-index: 1;
+        font-size: 57px;
+        text-shadow: 0 2px 5px rgb(241, 88, 27);
+        padding-bottom: 30px;
+        /* Ensure the text appears above the blurred background */
+    }
+
+    .menu {
+        width: 17%;
+        /* background-color: #f8f8f8; */
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 250px;
+        left: 5px;
+    }
+
+    .menu h2 {
+        text-align: center;
+    }
+
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .menu ul li a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        /* background: url('') no-repeat 10px center; */
+
+    }
+
+    .menu ul li a:hover {
+        color: rgb(241, 88, 27);
+    }
+
+    .content {
+        width: 52%;
+        /* padding: 20px; */
+        top: 200px;
+        position: absolute;
+        left: 350px;
+    }
+
+    .content section {
+        margin-bottom: 20px;
+
+    }
+
+    .content h2 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .items {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 15px;
+    }
+
+    .item {
+        width: 20%;
+        margin: 1%;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-radius: 5px;
+        background-color: #fff;
+        display: block;
+    }
+
+    .item img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    .item p {
+        margin: 10px 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show-more {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .show-more:hover {
+        background-color: #45a049;
+    }
+
+    .cart-icon {
+        position: absolute;
+        top: 200px;
+        right: 5px;
+        width: 22%;
+        /* height: 100%; */
+        font-size: 24px;
+        background-color: #fff;
+        /* border-radius: 50%; */
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-icon-content {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .cart-icon-basket {
+        font-size: 20px;
+        /* Adjust size as needed */
+    }
+
+    .cart-icon-label {
+        margin-left: 8px;
+        /* Space between icon and label */
+        font-size: 14px;
+    }
+
+    .cart-icon a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .cart-icon a:hover {
+        color: #4CAF50;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        /* bottom: 0; */
+    }
+
+    .footer p {
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: lightcoral;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    #backToTopBtn:hover {
+        background-color: orangered;
+    }
+</style>
+
+<body>
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">
+        <svg width="20" height="18" viewBox="0 0 24 24">
+            <path d="M12 2l-10 10h6v10h8v-10h6z" />
+        </svg>
+    </button>
+
+    <!-- Thanh giao diện trên cùng -->
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <a href="index.html"><img src="./pic/logo.jpg" alt=""></a>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#products">Sản phẩm</a></li>
+            <li><a href="#footer">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <header class="blurred-header">
+        <div class="header-content">
+            <h1>Welcome to Daisy's Tea</h1>
+        </div>
+    </header>
+
+
+    <!-- icon gio hang -->
+    <div class="cart-icon">
+        <a href="giohang.html">
+            <div class="cart-icon-content">
+                <span class="cart-icon-basket">🛒</span>
+                <span class="cart-icon-label">Cart</span>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="menu">
+        <ul>
+
+            <li><a href="#featured">
+                    <div style="display: flex;">
+                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px"
+                            src="./pic/icon/OIP.jpg" alt="">
+                        <p style="padding-left: 40px; font-weight: bold;"> Món Nổi Bật</p>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#milk-tea">
+                    <div style="display: flex;">
+                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px;"
+                            src="./pic/icon/OIP.jpg" alt="">
+                        <p style="padding-left: 40px; font-weight: bold;"> Trà sữa</p>
+                    </div>
+                </a></li>
+            <li><a href="#fruit-tea">
+                    <div style="display: flex;">
+                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px"
+                            src="./pic/icon/OIP.jpg" alt="">
+                        <p style="padding-left: 40px; font-weight: bold;"> Trà trái cây</p>
+                    </div>
+                </a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="featured">
+            <h2>Món Nổi Bật</h2>
+            <div class="items">
+                <!-- Repeat this block for each item -->
+                <div class="item">
+                    <img src="featured1.jpg" alt="Featured Item 1">
+                    <p>Item 1</p>
+                    <p>Price: $4.50</p>
+                </div>
+                <div class="item">
+                    <img src="featured2.jpg" alt="Featured Item 2">
+                    <p>Item 2</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item">
+                    <img src="featured3.jpg" alt="Featured Item 3">
+                    <p>Item 3</p>
+                    <p>Price: $5.00</p>
+                </div>
+                <div class="item hidden">
+                    <img src="featured4.jpg" alt="Featured Item 4">
+                    <p>Item 4</p>
+                    <p>Price: $4.25</p>
+                </div>
+                <div class="item hidden">
+                    <img src="featured5.jpg" alt="Featured Item 5">
+                    <p>Item 5</p>
+                    <p>Price: $5.25</p>
+                </div>
+            </div>
+            <button class="show-more" onclick="toggleItems('featured')">Xem Tất Cả</button>
+        </section>
+        <section id="milk-tea">
+            <h2>Trà Sữa</h2>
+            <div class="items">
+                <!-- Repeat this block for each item -->
+                <div class="item">
+                    <img src="./pic/Trà Sữa/Hồng Trà Sữa.jpg" alt="Hồng Trà Sữa">
+                    <p>Hồng Trà Sữa</p>
+                    <p>Price: $4.00</p>
+                </div>
+                <div class="item">
+                    <img src="./pic/Trà Sữa/Trà Olong Sữa Than Tre.jpg" alt="Trà Olong Sữa Than Tre">
+                    <p>Trà Olong Sữa Than Tre</p>
+                    <p>Price: $4.20</p>
+                </div>
+                <div class="item">
+                    <img src="./pic/Trà Sữa/Trà Olong Sữa.jpg" alt="Trà Olong Sữa">
+                    <p>Trà Olong Sữa</p>
+                    <p>Price: $4.50</p>
+                </div>
+                <div class="item">
+                    <img src="./pic/Trà Sữa/Trà Sữa Bạc Hà.jpg" alt="Trà Sữa Bạc Hà">
+                    <p>Trà Sữa Bạc Hà</p>
+                    <p>Price: $4.50</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <div class="item hidden">
+                    <img src="milktea4.jpg" alt="Milk Tea 4">
+                    <p>Milk Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <!-- Add more items here -->
+            </div>
+            <button class="show-more" onclick="toggleItems('milk-tea')">Xem Tất Cả</button>
+        </section>
+        <section id="fruit-tea">
+            <h2>Trà Trái Cây</h2>
+            <div class="items">
+                <!-- Repeat this block for each item -->
+                <div class="item">
+                    <img src="fruittea1.jpg" alt="Fruit Tea 1">
+                    <p>Fruit Tea 1</p>
+                    <p>Price: $4.00</p>
+                </div>
+                <div class="item">
+                    <img src="fruittea2.jpg" alt="Fruit Tea 2">
+                    <p>Fruit Tea 2</p>
+                    <p>Price: $4.25</p>
+                </div>
+                <div class="item">
+                    <img src="fruittea3.jpg" alt="Fruit Tea 3">
+                    <p>Fruit Tea 3</p>
+                    <p>Price: $4.50</p>
+                </div>
+                <div class="item hidden">
+                    <img src="fruittea4.jpg" alt="Fruit Tea 4">
+                    <p>Fruit Tea 4</p>
+                    <p>Price: $4.75</p>
+                </div>
+                <!-- Add more items here -->
+            </div>
+            <button class="show-more" onclick="toggleItems('fruit-tea')">Xem Tất Cả</button>
+        </section>
+        <div class="footer">
+            <footer id="footer">
+                <p>© Trà sữa DAISY'S TEA. Địa chỉ: 340/18 Đ.Tân Chánh Hiệp 10, P.Tân Chánh Hiệp, Q.12, TP.Hồ Chí Minh
+                </p>
+            </footer>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
