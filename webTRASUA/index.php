@@ -275,6 +275,42 @@
     #backToTopBtn:hover {
         background-color: orangered;
     }
+    .modal {
+        display:none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -287,7 +323,7 @@
     <!-- Thanh giao diện trên cùng -->
     <nav class="navbar">
         <ul class="navbar-menu">
-            <a href="index.html"><img src="./pic/logo.jpg" alt=""></a>
+            <a href="index.php"><img src="./pic/logo.jpg" alt=""></a>
             <li><a href="#home">Trang chủ</a></li>
             <li><a href="#products">Sản phẩm</a></li>
             <li><a href="#footer">Liên hệ</a></li>
@@ -349,21 +385,6 @@
                     <p>Item 1</p>
                     <p>Price: $4.50</p>
                 </div>
-                <div class="item">
-                    <img src="featured2.jpg" alt="Featured Item 2">
-                    <p>Item 2</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item">
-                    <img src="featured3.jpg" alt="Featured Item 3">
-                    <p>Item 3</p>
-                    <p>Price: $5.00</p>
-                </div>
-                <div class="item hidden">
-                    <img src="featured4.jpg" alt="Featured Item 4">
-                    <p>Item 4</p>
-                    <p>Price: $4.25</p>
-                </div>
                 <div class="item hidden">
                     <img src="featured5.jpg" alt="Featured Item 5">
                     <p>Item 5</p>
@@ -376,86 +397,44 @@
             <h2>Trà Sữa</h2>
             <div class="items">
                 <!-- Repeat this block for each item -->
-                <div class="item">
-                    <img src="./pic/Trà Sữa/Hồng Trà Sữa.jpg" alt="Hồng Trà Sữa">
-                    <p>Hồng Trà Sữa</p>
-                    <p>Price: $4.00</p>
-                </div>
-                <div class="item">
-                    <img src="./pic/Trà Sữa/Trà Olong Sữa Than Tre.jpg" alt="Trà Olong Sữa Than Tre">
-                    <p>Trà Olong Sữa Than Tre</p>
-                    <p>Price: $4.20</p>
-                </div>
-                <div class="item">
-                    <img src="./pic/Trà Sữa/Trà Olong Sữa.jpg" alt="Trà Olong Sữa">
-                    <p>Trà Olong Sữa</p>
-                    <p>Price: $4.50</p>
-                </div>
-                <div class="item">
-                    <img src="./pic/Trà Sữa/Trà Sữa Bạc Hà.jpg" alt="Trà Sữa Bạc Hà">
-                    <p>Trà Sữa Bạc Hà</p>
-                    <p>Price: $4.50</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
-                <div class="item hidden">
-                    <img src="milktea4.jpg" alt="Milk Tea 4">
-                    <p>Milk Tea 4</p>
-                    <p>Price: $4.75</p>
-                </div>
+                <?php 
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "trasuaweb";
+                    $connect = new mysqli($servername, $username, $password, $dbname);
+                    if ($connect->connect_error) {
+                        die("Ket noi that bai: " .$connect->connect_error);
+                    }
+                    $sql = "Select * from milktea";
+                    $result = $connect->query($sql);
+                    if ($result->num_rows > 0) {
+                        $count = 0;
+                        while($row = $result->fetch_assoc()) {
+                            if ($count >= 4) {
+                                echo '<div class = "item hidden">';
+                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg">';
+                                echo '<p>'.$row["milkteaName"]. '</p>';
+                                echo '<p>Price: '.$row["priceMt"].'d</p>';
+                                echo '</div>';
+                            }
+                            else {
+                                echo '<div class = "item">';
+                                echo '<img src="./pic/TràSữa/' . $row["milkteaName"] . '.jpg" id = "openModalImg">';
+                                echo '<p>'.$row["milkteaName"]. '</p>';
+                                echo '<p>Price: '.$row["priceMt"].'d</p>';
+                                echo '</div>';
+                            }
+                            $count++;
+                          
+                        }
+                    }
+                    else {
+                        echo "0 results";
+                    }
+                    $connect->close();
+                ?>
+               
                 <!-- Add more items here -->
             </div>
             <button class="show-more" onclick="toggleItems('milk-tea')">Xem Tất Cả</button>
@@ -469,16 +448,6 @@
                     <p>Fruit Tea 1</p>
                     <p>Price: $4.00</p>
                 </div>
-                <div class="item">
-                    <img src="fruittea2.jpg" alt="Fruit Tea 2">
-                    <p>Fruit Tea 2</p>
-                    <p>Price: $4.25</p>
-                </div>
-                <div class="item">
-                    <img src="fruittea3.jpg" alt="Fruit Tea 3">
-                    <p>Fruit Tea 3</p>
-                    <p>Price: $4.50</p>
-                </div>
                 <div class="item hidden">
                     <img src="fruittea4.jpg" alt="Fruit Tea 4">
                     <p>Fruit Tea 4</p>
@@ -488,6 +457,13 @@
             </div>
             <button class="show-more" onclick="toggleItems('fruit-tea')">Xem Tất Cả</button>
         </section>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                    <p>This is a simple modal.</p>
+                </div>
+            </div>
         <div class="footer">
             <footer id="footer">
                 <p>© Trà sữa DAISY'S TEA. Địa chỉ: 340/18 Đ.Tân Chánh Hiệp 10, P.Tân Chánh Hiệp, Q.12, TP.Hồ Chí Minh
