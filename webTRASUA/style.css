@@ -5,16 +5,66 @@ body {
     display: flex;
 }
 
+
+.navbar {
+    z-index: 2;
+    opacity: 0.8;
+    position: relative;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-left: 570px;
+    font-size: 19px;
+    font-weight: bold;
+    padding-top: 120px;
+}
+
+.navbar .navbar-menu img {
+    z-index: 4;
+    box-shadow: 0 0 5px;
+    width: 130px;
+    height: 130px;
+    padding: 0;
+    justify-content: left;
+    position: absolute;
+    top: 30px;
+    left: 55px;
+    border-radius: 60%;
+}
+
+
+.navbar-menu li {
+    float: left;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
 .blurred-header {
     position: absolute;
     width: 100%;
     height: 200px;
     /* Adjust the height as needed */
-    background: url('./pic/logo.jpg') no-repeat center center;
+    background: url('./pic/header.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .header-content {
@@ -24,7 +74,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     /* Apply the blur effect */
     background: rgba(255, 255, 255, 0.1);
     /* 25% opacity */
@@ -34,52 +84,94 @@ body {
     position: relative;
     color: white;
     z-index: 1;
+    font-size: 57px;
+    text-shadow: 0 2px 5px rgb(241, 88, 27);
+    padding-bottom: 30px;
     /* Ensure the text appears above the blurred background */
 }
 
 .menu {
-    width: 20%;
-    background-color: #f8f8f8;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    padding-top: 300px;
+width: 17%;
+/* background-color: #f8f8f8; */
+padding: 20px;
+box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+position: fixed;
+top: 250px;
+left: 5px;
 }
 
 .menu h2 {
-    text-align: center;
+text-align: center;
 }
 
 .menu ul {
-    list-style-type: none;
-    padding: 0;
+list-style-type: none;
+padding: 0;
 }
 
 .menu ul li {
-    margin: 10px 0;
+margin: 10px 0;
 }
 
 .menu ul li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    background-color: #eaeaea;
-    border-radius: 5px;
-    text-align: center;
+text-decoration: none;
+color: #333;
+display: block;
+background-color: white;
+border-radius: 5px;
+text-align: center;
+/* background: url('') no-repeat 10px center; */
+}
+.menu ul li div img {
+width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px;
+}
+.menu ul li a:hover {
+color: rgb(241, 88, 27);
 }
 
-.menu ul li a:hover {
-    background-color: #ddd;
+/* Media query for screens with width less than 768px */
+@media screen and (max-width: 768px) {
+.menu {
+    width: calc(17% - 1%); /* Reduce width by 10px */
+    padding: 0; /* Reduce padding by 10px */
+}
+
+.menu h2 {
+    font-size: 1.2em; /* Adjust the font size */
+}
+
+.menu ul li {
+    margin: auto; /* Reduce margin */
+}
+
+.menu ul li a {
+    font-size: 0.9em; /* Adjust the font size *//* Adjust the padding */
+}
+.menu ul li a div p {
+    font-size:12px;
+    padding:0;
+    margin-right: 10px;
+}
+.menu ul li div img {
+    padding:0;
+    padding-top:5px;
+}
+.content {
+    width:49%;        
+}
 }
 
 .content {
-    width: 70%;
-    padding: 20px;
-    padding-top: 200px;
+    width: 52%;
+    /* padding: 20px; */
+    top: 200px;
+    position: absolute;
+    left: 350px;
 }
 
 .content section {
     margin-bottom: 20px;
+
 }
 
 .content h2 {
@@ -90,16 +182,18 @@ body {
 .items {
     display: flex;
     flex-wrap: wrap;
+    padding-left: 15px;
 }
 
 .item {
-    width: 15%;
+    width: 20%;
     margin: 1%;
     padding: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: 5px;
     background-color: #fff;
+    display: block;
 }
 
 .item img {
@@ -132,12 +226,14 @@ body {
 }
 
 .cart-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute;
+    top: 200px;
+    right: 5px;
+    width: 22%;
+    /* height: 100%; */
     font-size: 24px;
     background-color: #fff;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     padding: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -167,4 +263,120 @@ body {
 
 .cart-icon a:hover {
     color: #4CAF50;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    /* bottom: 0; */
+}
+
+.footer p {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: lightcoral;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#backToTopBtn:hover {
+    background-color: orangered;
+}
+.modal {
+    display:none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    position: fixed;
+    left:150px;
+    top:-140px;
+      /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content .click-buy {
+    margin-left: 200px;
+    display: flex;
+    width: 30%;
+    position: absolute;
+    right:180px;
+    bottom:0;
+}
+.modal-content .click-buy p {
+    margin: 20px;
+    border: 4px green;
+    font-size: 18px;
+    font-variant: small-caps;
+    font-weight: bold;
+    color:skyblue;
+    text-decoration: underline;
+}
+.modal-content .click-buy .click {
+    width: 12%;
+    height:30%;
+    padding: 6px 0;
+    margin: 0 40px;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    color:#45a049;
+    border-color: skyblue;
+    box-shadow: 0 0 4px skyblue;
+    border:none;
+}
+.modal-content .click-buy .click:hover {
+    box-shadow: 0 0 5px lightgreen;
+}
+.modal-content .choose-info {
+    position: absolute;
+    top: 0;
+    right: 200px;
+}
+
+.choose-info .choose-size,
+.choose-info .choose-topping {
+    margin-bottom: 10px;
 }
