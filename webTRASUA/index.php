@@ -102,42 +102,75 @@
     }
 
     .menu {
-        width: 17%;
-        /* background-color: #f8f8f8; */
-        padding: 20px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        top: 250px;
-        left: 5px;
+    width: 17%;
+    /* background-color: #f8f8f8; */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 250px;
+    left: 5px;
+}
+
+.menu h2 {
+    text-align: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    /* background: url('') no-repeat 10px center; */
+}
+.menu ul li div img {
+    width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px;
+    }
+.menu ul li a:hover {
+    color: rgb(241, 88, 27);
+}
+
+/* Media query for screens with width less than 768px */
+@media screen and (max-width: 768px) {
+    .menu {
+        width: calc(17% - 1%); /* Reduce width by 10px */
+        padding: 0; /* Reduce padding by 10px */
     }
 
     .menu h2 {
-        text-align: center;
-    }
-
-    .menu ul {
-        list-style-type: none;
-        padding: 0;
+        font-size: 1.2em; /* Adjust the font size */
     }
 
     .menu ul li {
-        margin: 10px 0;
+        margin: auto; /* Reduce margin */
     }
 
     .menu ul li a {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        background-color: white;
-        border-radius: 5px;
-        text-align: center;
-        /* background: url('') no-repeat 10px center; */
-
+        font-size: 0.9em; /* Adjust the font size *//* Adjust the padding */
     }
-
-    .menu ul li a:hover {
-        color: rgb(241, 88, 27);
+    .menu ul li a div p {
+        font-size:12px;
+        padding:0;
+        margin-right: 10px;
     }
+    .menu ul li div img {
+        padding:0;
+        padding-top:5px;
+    }
+    .content {
+        width:49%;        
+    }
+}
 
     .content {
         width: 52%;
@@ -400,7 +433,7 @@
         <ul>
             <li><a href="#featured">
                     <div style="display: flex;">
-                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px"
+                        <img 
                             src="./pic/icon/OIP.jpg" alt="">
                         <p style="padding-left: 40px; font-weight: bold;"> Món Nổi Bật</p>
                     </div>
@@ -408,14 +441,14 @@
             </li>
             <li><a href="#milk-tea">
                     <div style="display: flex;">
-                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px;"
+                        <img 
                             src="./pic/icon/OIP.jpg" alt="">
                         <p style="padding-left: 40px; font-weight: bold;"> Trà sữa</p>
                     </div>
                 </a></li>
             <li><a href="#fruit-tea">
                     <div style="display: flex;">
-                        <img style="width: 20px;height: 20px;border-radius:40%;padding-top: 12px;padding-left: 20px"
+                        <img
                             src="./pic/icon/OIP.jpg" alt="">
                         <p style="padding-left: 40px; font-weight: bold;"> Trà trái cây</p>
                     </div>
